@@ -86,12 +86,20 @@ public class IndexSP500_Page extends BasePage {
                                 String industry = cells.get(4).getText().trim(); // Удаляем пробелы в начале и конце
                                 statement.setString(5, industry); // Устанавливаем значение из столбца "Industry"
 
-                                double tmp_res = Double.parseDouble(cells.get(6).getText().trim().replace("B", ""));
+//                                double tmp_res = Double.parseDouble(cells.get(6).getText().trim().replace("B", ""));
+//                                // Умножаем на 1 миллиард (10^9), чтобы получить итоговое значение
+//                                double marketcap = tmp_res * 1_000_000_000;
+//                                statement.setDouble(6, marketcap); // Устанавливаем значение из столбца "market cap"
+//
+//                                double change = Double.parseDouble(cells.get(9).getText().trim().replace("%", "").replace(",", "."));
+//                                statement.setDouble(7, change); // Устанавливаем значение из столбца "change"
+
+                                float tmp_res = Float.parseFloat(cells.get(6).getText().trim().replace("B", ""));
                                 // Умножаем на 1 миллиард (10^9), чтобы получить итоговое значение
-                                double marketcap = tmp_res * 1_000_000_000;
+                                float marketcap = tmp_res * 1_000_000_000;
                                 statement.setDouble(6, marketcap); // Устанавливаем значение из столбца "market cap"
 
-                                double change = Double.parseDouble(cells.get(9).getText().trim().replace("%", "").replace(",", "."));
+                                float change = Float.parseFloat(cells.get(9).getText().trim().replace("%", "").replace(",", "."));
                                 statement.setDouble(7, change); // Устанавливаем значение из столбца "change"
 
                                 int volume = Integer.parseInt(cells.get(10).getText().trim().replace(",", ""));

@@ -12,6 +12,7 @@ public class StartParsingSP500 extends TestBase {
     public void make_Start() {
 
         ScreenerPage screenerPage = new ScreenerPage(driver);
+        screenerPage.closeWindowOfAdvertising();
         screenerPage.openIndexMenu();
         pause(1000);
         screenerPage.choiceIndexSP500();

@@ -16,6 +16,9 @@ public class ScreenerPage extends BasePage {
     @FindBy(id = "fs_idx")
     private WebElement openMenuOfIndex;
 
+    @FindBy(xpath = "//*[@id='qc-cmp2-ui']/div[2]/div/button[2]/span")
+    WebElement button_disagree;
+
     public ScreenerPage(WebDriver driver) {
 
         super(driver);
@@ -23,6 +26,13 @@ public class ScreenerPage extends BasePage {
         // Установка максимального времени ожидания в 60 секунд
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("fs_idx")));// Ожидание видимости элемента
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='qc-cmp2-ui']/div[2]/div/button[2]/span")));// Ожидание видимости элемента
+    }
+
+    public ScreenerPage closeWindowOfAdvertising() { // Закрываем окно рекламы
+        button_disagree.click();
+        return this;
     }
 
     public ScreenerPage openIndexMenu() {
