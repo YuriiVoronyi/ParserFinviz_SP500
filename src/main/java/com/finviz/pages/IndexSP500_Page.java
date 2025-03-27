@@ -116,7 +116,7 @@ public class IndexSP500_Page extends BasePage {
                         // Выполняем пакетную вставку
                         statement.executeBatch();
 
-                        System.out.println("Завершена загрузка компаний индекса SP&500 страницы № " + numberOfPage);
+                        System.out.println("Завершена загрузка компаний индекса SP&500 страницы № " + numberOfPage + ", время данных: " + currentTime);
 
                         // Переходим к следующей странице
                         startRow += companiesPerPage;
@@ -129,7 +129,7 @@ public class IndexSP500_Page extends BasePage {
 
                 }
                 System.out.println("=======================================================");
-                System.out.println("Загрузка всех компаний индекса SP&500 завершена!");
+                System.out.println("Загрузка всех компаний индекса SP&500 завершена! Время данных: " + currentTime);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
